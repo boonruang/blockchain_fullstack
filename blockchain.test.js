@@ -28,7 +28,7 @@ describe('Blockchain', () => {
       it('returns false', () => {
         blockchain.chain[0] = { data: 'fake-genesis' }
 
-        expect(blockchain.isValidChain(blockchain.chain)).toBe(false)
+        expect(Blockchain.isValidChain(blockchain.chain)).toBe(false)
       })
     })
 
