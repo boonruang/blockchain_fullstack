@@ -8,7 +8,7 @@ describe('Block', () => {
   const hash = 'bar-hash'
   const data = ['blockchain', 'data']
   const nonce = 1
-  const difficulty = 1
+  const difficulty = 3
   const block = new Block({
     timestamp,
     lastHash,
@@ -77,6 +77,14 @@ describe('Block', () => {
         '0'.repeat(minedBlock.difficulty),
       )
     })
+
+    it('adjust the difficulty in MineBlock', () => {
+      const possibleResults = [
+        lastBlock.difficulty + 1,
+        lastBlock.difficulty - 1,
+      ]
+      expect(possibleResults.includes(minedBlock.difficulty)).toBe(true)
+    })
   })
 
   describe('adjustDifficulty()', () => {
@@ -89,7 +97,7 @@ describe('Block', () => {
       ).toEqual(block.difficulty + 1)
     })
 
-    it('lowers the difficult for a quickly mined block', () => {
+    it('lowers the difficult for a slowly mined block', () => {
       expect(
         Block.adjustDifficulty({
           originalBlock: block,
@@ -97,5 +105,12 @@ describe('Block', () => {
         }),
       ).toEqual(block.difficulty - 1)
     })
+  })
+
+  it('has a lower limit of 1', () => {
+    block.difficulty = -1
+    console.log('block: ', block)
+
+    expect(Block.adjustDifficulty({ originalBlock: block })).toEqual(1)
   })
 })
