@@ -11,6 +11,7 @@ https://github.com/15Dkatz/cryptochain
 
 npm i redis@2.8.0 --save
 
+install redis-server on Windows OS
 redis-server --service-install redis.windows.conf --loglevel verbose
 redis-server --service-start
 redis-server --service-stop
@@ -18,3 +19,4 @@ redis-server --service-uninstall
 
 npm i pubnub@4.21.6 —save
 npm i cross-env@5.2.0 --save-dev
+npm i request@2.88.0 --save
