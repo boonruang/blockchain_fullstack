@@ -17,3 +17,4 @@ redis-server --service-stop
 redis-server --service-uninstall
 
 npm i pubnub@4.21.6 —save
+npm i cross-env@5.2.0 --save-dev
