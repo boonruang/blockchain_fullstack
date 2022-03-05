@@ -8,7 +8,7 @@ const CHANNELS = {
 class PubSub {
   constructor({ blockchain }) {
     this.blockchain = blockchain
-    this.publishier = redis.createClient()
+    this.publisher = redis.createClient()
     this.subscriber = redis.createClient()
 
     this.subscribeToChannels()
@@ -35,7 +35,11 @@ class PubSub {
   }
 
   publish({ channel, message }) {
-    this.publishier.publish(channel, message)
+    this.subscriber.unsubscribe(channel, () => {
+      this.publisher.publish(channel, message, () => {
+        this.subscriber.subscribe(channel)
+      })
+    })
   }
 
   broadcastChain() {
