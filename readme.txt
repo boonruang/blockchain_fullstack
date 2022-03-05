@@ -10,3 +10,10 @@ Github course
 https://github.com/15Dkatz/cryptochain
 
 npm i redis@2.8.0 --save
+
+redis-server --service-install redis.windows.conf --loglevel verbose
+redis-server --service-start
+redis-server --service-stop
+redis-server --service-uninstall
+
+npm i pubnub@4.21.6 —save
