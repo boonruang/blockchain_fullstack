@@ -20,3 +20,4 @@ redis-server --service-uninstall
 npm i pubnub@4.21.6 —save
 npm i cross-env@5.2.0 --save-dev
 npm i request@2.88.0 --save
+npm i elliptic@6.4.1 --save
