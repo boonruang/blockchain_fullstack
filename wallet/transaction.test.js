@@ -77,7 +77,7 @@ describe('Transaction', () => {
 
     describe('when the transaction is invalid', () => {
       describe('and a transaction outputMap value is invalid', () => {
-        it('returns false and logs and error', () => {
+        it('returns false and logs an error', () => {
           transaction.outputMap[senderWallet.publicKey] = 999999
 
           expect(Transaction.validTransaction(transaction)).toBe(false)
@@ -86,7 +86,7 @@ describe('Transaction', () => {
       })
 
       describe('and a transaction input signature is invalid', () => {
-        it('returns false and logs and error', () => {
+        it('returns false and logs an error', () => {
           transaction.input.signature = new Wallet().sign('data')
 
           expect(Transaction.validTransaction(transaction)).toBe(false)
