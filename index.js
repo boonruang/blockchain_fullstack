@@ -37,7 +37,7 @@ app.post('/api/transac', (req, res) => {
   let transaction
 
   try {
-    const transaction = wallet.createTransaction({ recipient, amount })
+    transaction = wallet.createTransaction({ recipient, amount })
   } catch (error) {
     return res.status(400).json({ type: 'error', message: error.message })
   }
