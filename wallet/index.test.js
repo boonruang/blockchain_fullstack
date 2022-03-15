@@ -56,30 +56,6 @@ describe('Wallet', () => {
     })
 
     describe('and the amount is valid', () => {
-      //
-    })
-
-    describe('and a chain is passed', () => {
-      it('calls `Wallet.calculateBalance`', () => {
-        const calculateBalanceMock = jest.fn()
-
-        const originalCalculateBalance = Wallet.calculateBalance
-
-        Wallet.calculateBalance = calculateBalanceMock
-
-        wallet.createTransaction({
-          recipient: 'foo',
-          amount: 10,
-          chain: new Blockchain().chain,
-        })
-
-        expect(calculateBalanceMock).toHaveBeenCalled()
-
-        Wallet.calculateBalance = originalCalculateBalance
-      })
-    })
-
-    describe('and the amount is valid', () => {
       let transaction, amount, recipient
 
       beforeEach(() => {
@@ -99,6 +75,26 @@ describe('Wallet', () => {
       it('outputs the amount the recipient', () => {
         expect(transaction.outputMap[recipient]).toEqual(amount)
       })
+    })
+  })
+
+  describe('and a chain is passed', () => {
+    it('calls `Wallet.calculateBalance`', () => {
+      const calculateBalanceMock = jest.fn()
+
+      const originalCalculateBalance = Wallet.calculateBalance
+
+      Wallet.calculateBalance = calculateBalanceMock
+
+      wallet.createTransaction({
+        recipient: 'foo',
+        amount: 10,
+        chain: new Blockchain().chain,
+      })
+
+      expect(calculateBalanceMock).toHaveBeenCalled()
+
+      Wallet.calculateBalance = originalCalculateBalance
     })
   })
 
