@@ -17,6 +17,8 @@ class TransactionMiner {
       Transaction.rewardTransaction({ minerWallet: this.wallet }),
     )
 
+    console.log('validTransactions: ', validTransactions)
+
     // add a block consisting of these transactions to the blockchain
     this.blockchain.addBlock({ data: validTransactions })
 
