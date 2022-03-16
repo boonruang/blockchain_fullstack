@@ -21,7 +21,14 @@ npm i pubnub@4.21.6 —save
 npm i cross-env@5.2.0 --save-dev
 npm i request@2.88.0 --save
 npm i elliptic@6.4.1 --save
-npm i uuid@3.3.2 --seve 
+npm i uuid@3.3.2 --save 
 
 sha256-hash-generator online
 https://passwordsgenerator.net/sha256-hash-generator/
+
+
+npm i react react-dom
+npm i parcel-bundler
+
+npm run build-client
+npm run dev
