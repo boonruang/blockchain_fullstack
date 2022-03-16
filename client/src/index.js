@@ -1,4 +1,4 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-render(<div>Cryptochain in React!!!</div>, document.getElementById('root'))
+render(<div>Welcome to the blockchain!!!</div>, document.getElementById('root'))
