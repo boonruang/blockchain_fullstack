@@ -8,6 +8,9 @@
 # frontend .cache
 /.cache/
 
+#client build
+/client/dist
+
 /server/node_modules
 
 # testing
