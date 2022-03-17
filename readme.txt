@@ -26,9 +26,11 @@ npm i uuid@3.3.2 --save
 sha256-hash-generator online
 https://passwordsgenerator.net/sha256-hash-generator/
 
-
+## React Frontend
 npm i react react-dom
 npm i parcel-bundler
 
 npm run build-client
 npm run dev
+
+npm i babel-core@6.26.3 babel-plugin-transform-class-properties@6.24.1 babel-plugin-transform-object-rest-spread@6.26.0 babel-preset-env@1.7.0 babel-preset-react@6.24.1 --save
