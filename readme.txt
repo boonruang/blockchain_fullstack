@@ -34,3 +34,9 @@ npm run build-client
 npm run dev
 
 npm i babel-core@6.26.3 babel-plugin-transform-class-properties@6.24.1 babel-plugin-transform-object-rest-spread@6.26.0 babel-preset-env@1.7.0 babel-preset-react@6.24.1 --save
+
+remove all babel related (above)
+
+npm i @babel/core@7.2.2 --save-dev
+
+delete .babelrc
