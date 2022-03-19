@@ -41,3 +41,5 @@ delete .babelrc
 npm i @babel/core@7.2.2 --save-dev
 
 npm i react-bootstrap
+npm i react-router-dom@4.3.1 --save
+npm i history@4.7.2 --save
