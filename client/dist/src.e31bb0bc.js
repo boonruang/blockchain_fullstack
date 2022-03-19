@@ -53673,9 +53673,13 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactBootstrap = require("react-bootstrap");
+
 var _Transaction = _interopRequireDefault(require("./Transaction"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _history = _interopRequireDefault(require("../history"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53739,6 +53743,18 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "fetchMineTransactions", function () {
+      fetch("".concat(document.location.origin, "/api/mine-transactions")).then(function (response) {
+        if (response.status === 200) {
+          alert('success');
+
+          _history.default.push('/blocks');
+        } else {
+          alert('The mine-transactions block request did not complete');
+        }
+      });
+    });
+
     return _this;
   }
 
@@ -53770,7 +53786,10 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Transaction.default, {
           transaction: transaction
         }));
-      }));
+      }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+        variant: "danger",
+        onClick: this.fetchMineTransactions
+      }, "Mine the Transaction"));
     }
   }]);
 
@@ -53779,7 +53798,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
 
 var _default = TransactionPool;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./Transaction":"components/Transaction.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-bootstrap":"../../node_modules/react-bootstrap/esm/index.js","./Transaction":"components/Transaction.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../history":"history.js"}],"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {

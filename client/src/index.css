@@ -43,3 +43,9 @@ a:hover {
   color: #e66;
   text-decoration: underline;
 }
+
+hr {
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
