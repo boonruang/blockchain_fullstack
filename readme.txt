@@ -56,3 +56,15 @@ Use heroku addons:info redis-rugged-72030 to check creation progress
 Use heroku addons:docs heroku-redis to view documentation
 
 heroku addons:info redis-rugged-72030
+
+$ cd my-project/
+$ git init
+$ heroku git:remote -a rocky-peak-35087
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku main
+
+heroku logs --tail
+
+heroku open
+https://rocky-peak-35087.herokuapp.com/

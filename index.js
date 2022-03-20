@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser')
 const express = require('express')
 const request = require('request')
 const path = require('path')
@@ -12,7 +11,8 @@ const isDevelpment = process.env.ENV === 'development'
 
 const REDIS_URL = isDevelpment
   ? 'redis://127.0.0.1:6379'
-  : 'redis://:p2239ccabc043bedf8f575d0e4440ded1595e9abb4e4115318bce6367b15882be@ec2-50-16-112-137.compute-1.amazonaws.com:18469'
+  : 'redis://:pb29702bcecc9c4c451dfccc1ef73983e51733f05a94627e93ae1a6d972285e60@ec2-54-208-163-41.compute-1.amazonaws.com:26599'
+
 const DEFAULT_PORT = 3000
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`
 
@@ -28,7 +28,7 @@ const transactionMiner = new TransactionMiner({
   pubsub,
 })
 
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(express.static(path.join(__dirname, 'client/dist')))
 
 app.get('/api/blocks', (req, res) => {
@@ -81,6 +81,20 @@ app.get('/api/mine-transactions', (req, res) => {
   transactionMiner.mineTransactions()
 
   res.redirect('/api/blocks')
+})
+
+app.get('/api/known-addresses', (req, res) => {
+  const addressMap = {}
+
+  for (let block of blockchain.chain) {
+    for (let transaction of block.data) {
+      const recipient = Object.keys(transaction.outputMap)
+
+      recipient.forEach((recipient) => (addressMap[recipient] = recipient))
+    }
+  }
+
+  res.json(Object.keys(addressMap))
 })
 
 app.get('/api/wallet-info', (req, res) => {
