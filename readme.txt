@@ -43,3 +43,16 @@ npm i @babel/core@7.2.2 --save-dev
 npm i react-bootstrap
 npm i react-router-dom@4.3.1 --save
 npm i history@4.7.2 --save
+
+deploy
+heroku login
+git init
+heroku create
+https://rocky-peak-35087.herokuapp.com/ | https://git.heroku.com/rocky-peak-35087.git
+heroku addons:create heroku-redis:hobby-dev -a rocky-peak-35087
+
+redis-rugged-72030 is being created in the background. The app will restart when complete...       
+Use heroku addons:info redis-rugged-72030 to check creation progress
+Use heroku addons:docs heroku-redis to view documentation
+
+heroku addons:info redis-rugged-72030
