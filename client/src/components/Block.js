@@ -28,11 +28,7 @@ class Block extends Component {
             </div>
           ))}
           <br />
-          <Button
-            variant="danger"
-            bsSize="small"
-            onClick={this.toggleTransaction}
-          >
+          <Button variant="danger" onClick={this.toggleTransaction}>
             Show Less
           </Button>
         </div>
@@ -42,11 +38,7 @@ class Block extends Component {
     return (
       <div>
         <div>Data: {dataDisplay} </div>
-        <Button
-          variant="danger"
-          bsSize="small"
-          onClick={this.toggleTransaction}
-        >
+        <Button variant="danger" onClick={this.toggleTransaction}>
           Show More
         </Button>
       </div>
